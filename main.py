@@ -47,5 +47,8 @@ def show_df(spark_session: SparkSession):
     print("Категории:")
     categories.show()
 
+    print("Связи:")
+    connection_df.show()
+
     print("Результат:")
     get_df_with_products_and_categories(products, categories, connection_df).show()

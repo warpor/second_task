@@ -27,10 +27,6 @@ show_df(spark_session)
     +--------+---+
     
     Результат:
-
-
-                                                                                    
-
     +-------+--------+
     |product|category|
     +-------+--------+
@@ -41,9 +37,4 @@ show_df(spark_session)
     |   meat|  health|
     |   milk|   drink|
     +-------+--------+
-
-
-
 ```python
-
-```
