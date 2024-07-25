@@ -1,4 +1,4 @@
-#Вывод с Jupyter Notebook
+# Вывод с Jupyter Notebook
 
 ```python
 from main import show_df, create_spark_session
