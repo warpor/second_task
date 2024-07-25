@@ -1,9 +1,6 @@
 from typing import Tuple
 
-from pyspark.shell import spark
 from pyspark.sql import DataFrame, SparkSession
-from pyspark.sql.types import StructType, StructField, StringType
-from pyspark_test import assert_pyspark_df_equal
 
 from utils import get_df_with_products_and_categories
 
@@ -41,26 +38,14 @@ def create_spark_session() -> SparkSession:
     return spark_session
 
 
-def create_result(spark_session: SparkSession) -> DataFrame:
-    result_schema = StructType([
-        StructField("product", StringType(), True),
-        StructField("category", StringType(), True)
-    ])
-
-    data = [
-        ("milk", "health"),
-        ("milk", "drink"),
-        ("milk", "eat"),
-        ("meat", "health"),
-        ("meat", "eat"),
-        ("bread", None),
-    ]
-
-    return spark_session.createDataFrame(data, schema=result_schema)
-
-
-def get_df(spark_session: SparkSession):
+def show_df(spark_session: SparkSession):
     products, categories, connection_df = _create_frames(spark_session)
-    return get_df_with_products_and_categories(products, categories, connection_df)
-    # expected = create_result(spark_session)
-    # assert_pyspark_df_equal(result_frame, expected)
+
+    print("Продукты:")
+    products.show()
+
+    print("Категории:")
+    categories.show()
+
+    print("Результат:")
+    get_df_with_products_and_categories(products, categories, connection_df).show()
