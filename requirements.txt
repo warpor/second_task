@@ -1,3 +1,2 @@
 jupyter
 pyspark
-pyspark-test
